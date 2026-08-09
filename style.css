@@ -1,0 +1,1132 @@
+```css
+/* =========================
+   BASIC
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #03152f;
+    color: white;
+    overflow: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================
+   OPENING SCREEN
+========================= */
+
+.opening {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(45, 145, 255, 0.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #020b1c,
+            #06285c,
+            #03152f
+        );
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.opening.hide {
+    opacity: 0;
+    transform: scale(1.08);
+    pointer-events: none;
+}
+
+.opening-card {
+    width: min(90%, 520px);
+    padding: 55px 35px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.03)
+        );
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.4),
+        inset 0 1px rgba(255,255,255,0.15);
+
+    animation: cardFloat 4s ease-in-out infinite;
+}
+
+.tulip-icon {
+    font-size: 75px;
+
+    margin-bottom: 20px;
+
+    filter:
+        drop-shadow(0 10px 25px rgba(56,160,255,0.5));
+
+    animation: tulipFloat 3s ease-in-out infinite;
+}
+
+.small-text {
+    color: #8dbdfc;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.opening h1 {
+    margin: 20px 0;
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(50px, 12vw, 80px);
+
+    line-height: 0.95;
+}
+
+.opening h1 span {
+    color: #76b7ff;
+
+    text-shadow:
+        0 0 30px rgba(70,160,255,0.5);
+}
+
+.opening-description {
+    color: #bdd8f8;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+.open-button,
+.love-button {
+
+    border: 0;
+
+    padding: 15px 28px;
+
+    border-radius: 100px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4fa3ff,
+            #1667c9
+        );
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(27,123,225,0.4);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.open-button:hover,
+.love-button:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 40px rgba(27,123,225,0.6);
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main-content {
+    display: none;
+}
+
+.main-content.show {
+    display: block;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 600px;
+    height: 600px;
+
+    border-radius: 50%;
+
+    background: #1478e8;
+
+    filter: blur(180px);
+
+    opacity: 0.12;
+
+    top: -250px;
+    right: -250px;
+
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floating-hearts span {
+
+    position: fixed;
+
+    color: rgba(125,190,255,0.18);
+
+    font-size: 30px;
+
+    animation: floatUp 10s linear infinite;
+
+    pointer-events: none;
+}
+
+.floating-hearts span:nth-child(1) {
+    left: 10%;
+    bottom: -50px;
+    animation-delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+    left: 30%;
+    bottom: -50px;
+    animation-delay: 3s;
+}
+
+.floating-hearts span:nth-child(3) {
+    left: 55%;
+    bottom: -50px;
+    animation-delay: 6s;
+}
+
+.floating-hearts span:nth-child(4) {
+    left: 75%;
+    bottom: -50px;
+    animation-delay: 1s;
+}
+
+.floating-hearts span:nth-child(5) {
+    left: 90%;
+    bottom: -50px;
+    animation-delay: 5s;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(41,133,240,0.2),
+            transparent 50%
+        );
+}
+
+.hero-tulips {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.hero-tulips span {
+
+    font-size: 45px;
+
+    filter:
+        drop-shadow(0 10px 15px rgba(50,140,255,0.35));
+
+    animation:
+        tulipFloat 3s ease-in-out infinite;
+}
+
+.hero-tulips span:nth-child(2) {
+    animation-delay: .4s;
+}
+
+.hero-tulips span:nth-child(3) {
+    animation-delay: .8s;
+}
+
+.eyebrow {
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    font-size: 11px;
+
+    color: #73b6ff;
+
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(50px, 10vw, 100px);
+
+    line-height: 0.95;
+
+    max-width: 900px;
+}
+
+.hero h2 span {
+
+    color: #6bb4ff;
+
+    font-style: italic;
+
+    text-shadow:
+        0 0 40px rgba(73,164,255,0.4);
+}
+
+.hero-text {
+
+    max-width: 560px;
+
+    color: #aac9eb;
+
+    line-height: 1.8;
+
+    margin-top: 30px;
+}
+
+.scroll-indicator {
+
+    margin-top: 70px;
+
+    color: #6db4ff;
+
+    font-size: 30px;
+
+    animation: bounce 2s infinite;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-section {
+
+    padding:
+        120px 20px;
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.section-label {
+
+    text-align: center;
+
+    color: #69b1ff;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+.letter-card {
+
+    position: relative;
+
+    padding: 60px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.10),
+            rgba(255,255,255,0.025)
+        );
+
+    border:
+        1px solid rgba(130,190,255,0.2);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.25);
+
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.letter-card.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.letter-decoration {
+
+    position: absolute;
+
+    top: -30px;
+
+    right: 40px;
+
+    font-size: 60px;
+
+    transform: rotate(12deg);
+
+    filter:
+        drop-shadow(0 10px 20px rgba(40,140,255,0.3));
+}
+
+.letter-card h2 {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(35px, 6vw, 55px);
+
+    line-height: 1.05;
+
+    margin-bottom: 40px;
+
+    color: #d9ecff;
+}
+
+.letter-content p {
+
+    color: #b8d1ed;
+
+    font-size: 15px;
+
+    line-height: 2;
+
+    margin-bottom: 22px;
+}
+
+.letter-content strong {
+
+    color: #78baff;
+}
+
+.final-line {
+
+    font-size: 18px !important;
+
+    color: #d8ebff !important;
+}
+
+.signature {
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-top: 50px;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.1);
+
+    color: #86bdf4;
+}
+
+.signature strong {
+
+    color: #e1f0ff;
+
+    margin-top: 5px;
+}
+
+
+/* =========================
+   MEMORY
+========================= */
+
+.memory-section {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding:
+        120px 20px;
+}
+
+.memory-section h2 {
+
+    font-family: "DM Serif Display", serif;
+
+    text-align: center;
+
+    font-size: clamp(50px, 8vw, 80px);
+
+    line-height: 0.95;
+}
+
+.memory-section h2 span {
+
+    color: #69b4ff;
+
+    font-style: italic;
+}
+
+.memory-intro {
+
+    text-align: center;
+
+    max-width: 550px;
+
+    margin:
+        25px auto 60px;
+
+    color: #9fbee0;
+
+    line-height: 1.8;
+}
+
+.gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.photo-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    min-height: 350px;
+
+    background: #0a2850;
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    opacity: 0;
+
+    transform:
+        translateY(50px)
+        rotate(1deg);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.25);
+}
+
+.photo-card.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        rotate(0);
+}
+
+.photo-card:nth-child(even) {
+    transform:
+        translateY(50px)
+        rotate(-1deg);
+}
+
+.photo-card.visible:nth-child(even) {
+    transform:
+        translateY(0)
+        rotate(0);
+}
+
+.photo-card img {
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 350px;
+
+    object-fit: cover;
+
+    transition:
+        transform .6s ease;
+}
+
+.photo-card:hover img {
+
+    transform: scale(1.07);
+}
+
+.photo-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 45%,
+            rgba(1,15,38,0.9)
+        );
+}
+
+.photo-caption {
+
+    position: absolute;
+
+    z-index: 2;
+
+    bottom: 25px;
+
+    left: 25px;
+
+    right: 25px;
+}
+
+.photo-caption span {
+
+    font-size: 11px;
+
+    color: #75b8ff;
+
+    letter-spacing: 3px;
+}
+
+.photo-caption p {
+
+    margin-top: 5px;
+
+    font-size: 17px;
+
+    color: white;
+}
+
+
+/* =========================
+   TULIP
+========================= */
+
+.tulip-section {
+
+    text-align: center;
+
+    padding:
+        160px 20px;
+
+    max-width: 800px;
+
+    margin: auto;
+
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.tulip-section.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.big-tulip {
+
+    font-size: 120px;
+
+    margin-bottom: 30px;
+
+    filter:
+        drop-shadow(
+            0 20px 30px
+            rgba(53,148,255,0.4)
+        );
+
+    animation:
+        tulipFloat 4s ease-in-out infinite;
+}
+
+.tulip-section h2 {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(45px, 8vw, 75px);
+
+    line-height: 1;
+}
+
+.tulip-message {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin: 45px 0;
+
+    color: #bcd8f6;
+
+    font-size: 18px;
+}
+
+.tulip-message span {
+
+    font-size: 35px;
+}
+
+.small-note {
+
+    color: #6faeea;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-section {
+
+    position: relative;
+
+    min-height: 90vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    overflow: hidden;
+}
+
+.final-glow {
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: #167be7;
+
+    filter: blur(180px);
+
+    opacity: .18;
+}
+
+.final-content {
+
+    position: relative;
+
+    max-width: 650px;
+
+    opacity: 0;
+
+    transform: scale(.9);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.final-content.visible {
+
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+.heart {
+
+    font-size: 70px;
+
+    animation:
+        heartbeat 1.5s infinite;
+
+    filter:
+        drop-shadow(
+            0 10px 30px
+            rgba(50,150,255,.5)
+        );
+}
+
+.final-content h2 {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(45px, 8vw, 75px);
+
+    margin: 25px 0;
+
+    line-height: 1;
+}
+
+.final-content > p {
+
+    color: #aac9e9;
+
+    line-height: 1.9;
+}
+
+.final-content h3 {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 40px;
+
+    color: #72b8ff;
+
+    margin: 30px 0;
+}
+
+.secret-message {
+
+    max-width: 400px;
+
+    margin:
+        30px auto 0;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+}
+
+.secret-message.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    padding:
+        60px 20px;
+
+    text-align: center;
+
+    color: #7195ba;
+
+    border-top:
+        1px solid rgba(255,255,255,0.05);
+}
+
+footer div {
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+footer span {
+
+    color: #69b4ff;
+
+    display: block;
+
+    margin-top: 10px;
+}
+
+
+/* =========================
+   POP HEARTS
+========================= */
+
+.pop-heart {
+
+    position: fixed;
+
+    bottom: 0;
+
+    z-index: 999;
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+    animation:
+        popUp 3s ease-out forwards;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes cardFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes tulipFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(3deg);
+    }
+}
+
+@keyframes bounce {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.15);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes floatUp {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes popUp {
+
+    from {
+        transform:
+            translateY(0)
+            scale(.5)
+            rotate(0);
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translateY(-80vh)
+            scale(1.5)
+            rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .opening-card {
+
+        padding:
+            45px 25px;
+
+        border-radius: 25px;
+    }
+
+    .tulip-icon {
+        font-size: 60px;
+    }
+
+    .hero {
+        padding: 30px 20px;
+    }
+
+    .hero-tulips span {
+        font-size: 35px;
+    }
+
+    .letter-section,
+    .memory-section {
+        padding:
+            90px 18px;
+    }
+
+    .letter-card {
+        padding: 35px 25px;
+    }
+
+    .letter-decoration {
+        right: 20px;
+        font-size: 45px;
+    }
+
+    .letter-content p {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card,
+    .photo-card img {
+        min-height: 420px;
+    }
+
+    .big-tulip {
+        font-size: 90px;
+    }
+
+    .tulip-message {
+        gap: 10px;
+        font-size: 15px;
+    }
+
+    .tulip-message span {
+        font-size: 25px;
+    }
+
+    .final-section {
+        min-height: 80vh;
+    }
+}
+```
