@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* === Animasi Tirai Bunga === */
+#curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    cursor: pointer;
+}
+
+.curtain-panel {
+    width: 50%;
+    height: 100%;
+    background: #4a90e2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.curtain-panel.left {
+    border-right: 2px solid #ffffff55;
+}
+
+.curtain-panel.right {
+    border-left: 2px solid #ffffff55;
+}
+
+.curtain-text {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    animation: bounce 1.5s infinite;
+}
+
+#curtain.open .curtain-panel.left {
+    transform: translateX(-100%);
+}
+
+#curtain.open .curtain-panel.right {
+    transform: translateX(100%);
+}
+
+#curtain.open .curtain-text {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* === Card Utama === */
+.container {
+    padding: 20px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border: 3px solid #89cff0;
+}
+
+.tulip-header {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #1e3c72;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #4a90e2;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #89cff0, transparent);
+    margin: 20px 0;
+}
+
+.message {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.audio-control button {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.audio-control button:active {
+    transform: scale(0.95);
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* Keyframes */
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, -50%); }
+    50% { transform: translate(-50%, -60%); }
+}
