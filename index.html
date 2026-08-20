@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Blue Garden 💙</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- MUSIC -->
+    <audio id="music" loop>
+        <source src="heart.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- LOADING -->
+    <div class="loading" id="loading">
+
+        <div class="loading-flower">🌷</div>
+
+        <div class="loading-line">
+            <span></span>
+        </div>
+
+        <p>growing our little garden...</p>
+
+    </div>
+
+
+    <!-- FLOATING PARTICLES -->
+    <div class="particles"></div>
+
+
+    <!-- =========================
+         CINEMATIC OPENING
+    ========================== -->
+
+    <section class="opening" id="opening">
+
+        <div class="opening-glow"></div>
+
+        <div class="opening-content">
+
+            <div class="opening-flower">
+                🌷
+            </div>
+
+            <p class="eyebrow">
+                A LITTLE FILM ABOUT US
+            </p>
+
+            <h1>
+                Our
+                <span>Story.</span>
+            </h1>
+
+            <p class="opening-text">
+                Delapan foto.<br>
+                Banyak cerita.<br>
+                Satu taman kecil untuk kita.
+            </p>
+
+            <button class="play-btn" id="playBtn">
+
+                <span class="play-circle">▶</span>
+
+                <span>
+                    Play Our Story
+                </span>
+
+            </button>
+
+            <p class="sound-hint">
+                🎧 turn your volume on
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CINEMATIC MEMORY
+    ========================== -->
+
+    <section class="film" id="film">
+
+        <!-- TOP BAR -->
+
+        <div class="film-top">
+
+            <div class="film-logo">
+                OUR STORY
+            </div>
+
+            <div class="sound-status">
+                <span></span>
+                SOUND ON
+            </div>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="film-progress">
+
+            <div class="film-counter">
+
+                <strong id="filmNumber">
+                    01
+                </strong>
+
+                <span>
+                    / 08
+                </span>
+
+            </div>
+
+            <div class="film-line">
+                <span id="filmProgress"></span>
+            </div>
+
+        </div>
+
+
+        <!-- BIG PHOTO -->
+
+        <div class="film-photo-area">
+
+            <div class="film-photo-glow"></div>
+
+            <div class="film-photo-back"></div>
+
+            <div class="film-photo">
+
+                <img
+                    id="filmImage"
+                    src="foto1.jpg"
+                    alt="Memory"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- FLOWERS -->
+
+        <div class="film-tulip tulip-left">
+            🌷
+        </div>
+
+        <div class="film-tulip tulip-right">
+            🌷
+        </div>
+
+
+        <!-- TEXT -->
+
+        <div class="film-caption">
+
+            <p id="filmLabel">
+                MEMORY 01
+            </p>
+
+            <h2 id="filmTitle">
+                It started with a simple moment.
+            </h2>
+
+            <span id="filmDescription">
+                Dan ternyata momen sederhana
+                bisa menjadi sesuatu yang ingin
+                kita simpan selamanya.
+            </span>
+
+        </div>
+
+
+        <!-- NEXT -->
+
+        <button
+            class="film-next"
+            id="filmNext"
+        >
+
+            <span>
+                NEXT MEMORY
+            </span>
+
+            <b>→</b>
+
+        </button>
+
+
+        <div class="film-swipe">
+            swipe / click next
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TRANSITION
+    ========================== -->
+
+    <div class="transition" id="transition">
+
+        <div class="transition-tulip">
+            🌷
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         BLUE GARDEN
+    ========================== -->
+
+    <main class="garden" id="garden">
+
+
+        <!-- GARDEN INTRO -->
+
+        <section class="garden-intro">
+
+            <div class="garden-flower">
+                🌷
+            </div>
+
+            <p class="eyebrow">
+                WELCOME TO OUR GARDEN
+            </p>
+
+            <h2>
+                Our Little
+                <span>Blue Garden</span>
+            </h2>
+
+            <p>
+                Kalau bagian sebelumnya adalah film tentang
+                cerita kita, bagian ini adalah tempat untuk
+                menyimpan semua kenangannya.
+            </p>
+
+            <div class="scroll-arrow">
+                ↓
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SCRAPBOOK
+        ========================== -->
+
+        <section class="scrapbook">
+
+            <div class="section-title">
+
+                <p>
+                    OUR MEMORIES
+                </p>
+
+                <h2>
+                    8 Potongan Cerita 💙
+                </h2>
+
+            </div>
+
+
+            <div class="photo-grid">
+
+
+                <!-- PHOTO 1 -->
+
+                <article
+                    class="memory-card card1"
+                    onclick="openPhoto(0)"
+                >
+
+                    <div class="card-image">
+
+                        <img
+                            src="foto1.jpg"
+                            alt="Memory 1"
+                        >
+
+                        <div class="card-number">
+                            01
+                        </div>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <small>
+                            MEMORY #01
+                        </small>
+
+                        <h3>
+                            Awal dari semuanya 🌷
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PHOTO 2 -->
+
+                <article
+                    class="memory-card card2"
+                    onclick="openPhoto(1)"
+                >
+
+                    <div class="card-image">
+
+                        <img
+                            src="foto2.jpg"
+                            alt="Memory 2"
+                        >
+
+                        <div class="card-number">
+                            02
+                        </div>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <small>
+                            MEMORY #02
+                        </small>
+
+                        <h3>
+                            Ketika kita lagi begini 💙
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PHOTO 3 -->
+
+                <article
+                    class="memory-card card3"
+                    onclick="openPhoto(2)"
+                >
+
+                    <div class="card-image">
+
+                        <img
+                            src="foto3.jpg"
+                            alt="Memory 3"
+                        >
+
+                        <div class="card-number">
+                            03
+                        </div>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <small>
+                            MEMORY #03
+                        </small>
+
+                        <h3>
+                            Senyum yang nggak direncanakan ✨
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PHOTO 4 -->
+
+                <article
+                    class="memory-card card4"
+                    onclick="openPhoto(3)"
+                >
+
+                    <div class="card-image">
+
+                        <img
+                            src="foto4.jpg"
+                            alt="Memory 4"
+                        >
+
+                        <div class="card-number">
+                            04
+                        </div>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <small>
+                            MEMORY #04
+                        </small>
+
+                        <h3>
+                            Hari yang pengen diulang 🌸
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PHOTO 5 -->
+
+                <article
+                    class="memory-card card5"
+                    onclick="openPhoto(4)"
+                >
+
+                    <div class="card-image">
+
+                        <img
+                            src="foto5.jpg"
+                            alt="Memory 5"
+                        >
+
+                        <div class="card-number">
+                            05
+                        </div>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <small>
+                            MEMORY #05
+                        </small>
+
+                        <h3>
+                            Random tapi favorit 😂
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PHOTO 6 -->
+
+                <article
+                    class="memory-card card6"
+                    onclick="openPhoto(5)"
+                >
+
+                    <div class="card-image">
+
+                        <img
+                            src="foto6.jpg"
+                            alt="Memory 6"
+                        >
+
+                        <div class="card-number">
+                            06
+                        </div>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <small>
+                            MEMORY #06
+                        </small>
+
+                        <h3>
+                            Jangan lihat lama-lama 😭
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PHOTO 7 -->
+
+                <article
+                    class="memory-card card7"
+                    onclick="openPhoto(6)"
+                >
+
+                    <div class="card-image">
+
+                        <img
+                            src="foto7.jpg"
+                            alt="Memory 7"
+                        >
+
+                        <div class="card-number">
+                            07
+                        </div>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <small>
+                            MEMORY #07
+                        </small>
+
+                        <h3>
+                            One of my favorites 💙
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PHOTO 8 -->
+
+                <article
+                    class="memory-card card8"
+                    onclick="openPhoto(7)"
+                >
+
+                    <div class="card-image">
+
+                        <img
+                            src="foto8.jpg"
+                            alt="Memory 8"
+                        >
+
+                        <div class="card-number">
+                            08
+                        </div>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <small>
+                            MEMORY #08
+                        </small>
+
+                        <h3>
+                            Dan ternyata sudah 8 foto 🌷
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FUNNY SECTION
+        ========================== -->
+
+        <section class="funny">
+
+            <div class="funny-box">
+
+                <div class="funny-flower">
+                    🌷
+                </div>
+
+                <p class="eyebrow">
+                    VERY SERIOUS RESEARCH
+                </p>
+
+                <h2>
+                    Kenapa foto kita
+                    <span>nggak boleh dihapus?</span>
+                </h2>
+
+
+                <div class="reasons">
+
+                    <div class="reason">
+
+                        <strong>
+                            01
+                        </strong>
+
+                        <p>
+                            Karena kalau dihapus,
+                            yang kehilangan bukan cuma
+                            storage HP.
+                            <b>Gue juga.</b> 😭
+                        </p>
+
+                    </div>
+
+
+                    <div class="reason">
+
+                        <strong>
+                            02
+                        </strong>
+
+                        <p>
+                            Karena ini bukti kalau kita
+                            pernah <b>se-random ini.</b> 😂
+                        </p>
+
+                    </div>
+
+
+                    <div class="reason">
+
+                        <strong>
+                            03
+                        </strong>
+
+                        <p>
+                            Galeri boleh penuh.
+                            Kenangan jangan
+                            <b>hilang.</b> 💙
+                        </p>
+
+                    </div>
+
+
+                    <div class="reason">
+
+                        <strong>
+                            04
+                        </strong>
+
+                        <p>
+                            Dan alasan paling ilmiah:
+                            <b>gue suka foto kita.</b> 🌷
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             LETTER
+        ========================== -->
+
+        <section class="letter-section">
+
+            <div class="letter">
+
+                <div class="letter-tulip">
+                    🌷
+                </div>
+
+                <p class="eyebrow">
+                    A LITTLE NOTE
+                </p>
+
+                <h2>
+                    Untuk kamu.
+                </h2>
+
+                <div class="letter-line"></div>
+
+                <p>
+                    Aku nggak tahu nanti kita bakal
+                    sejauh apa, bakal sesibuk apa,
+                    atau bakal punya berapa banyak
+                    cerita baru setelah ini.
+                </p>
+
+                <p>
+                    Tapi aku pengen satu hal tetap ada:
+                    <span>kenangan kecil tentang kita.</span>
+                </p>
+
+                <p>
+                    Karena ternyata kebahagiaan nggak
+                    selalu datang dalam bentuk sesuatu
+                    yang besar.
+                </p>
+
+                <p>
+                    Kadang cuma jalan bareng,
+                    ngobrol nggak jelas,
+                    ketawa karena hal bodoh,
+                    lalu foto bareng.
+                </p>
+
+                <p class="letter-highlight">
+                    Dan mungkin...
+                    <br><br>
+                    justru hal-hal sederhana itu
+                    yang suatu hari paling kita rindukan.
+                    💙
+                </p>
+
+                <div class="signature">
+                    — dari seseorang yang suka kamu 🌷
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FINAL
+        ========================== -->
+
+        <section class="final">
+
+            <div class="final-flowers">
+                🌷 🌷 🌷
+            </div>
+
+            <p class="eyebrow">
+                END OF OUR LITTLE FILM
+            </p>
+
+            <h2>
+                Our little garden
+                <span>will always be here.</span>
+            </h2>
+
+            <p>
+                Whenever you miss us,
+                <br>
+                come back here. 💙
+            </p>
+
+            <div class="heart">
+                💙
+            </div>
+
+            <p class="made">
+                made with love & a little chaos
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         PHOTO VIEWER
+    ========================== -->
+
+    <div
+        class="viewer"
+        id="viewer"
+    >
+
+        <button
+            class="viewer-close"
+            onclick="closePhoto()"
+        >
+            ×
+        </button>
+
+
+        <button
+            class="viewer-prev"
+            onclick="changePhoto(-1)"
+        >
+            ‹
+        </button>
+
+
+        <div class="viewer-content">
+
+            <img
+                id="viewerImage"
+                src=""
+                alt=""
+            >
+
+            <div class="viewer-caption">
+
+                <small id="viewerNumber">
+                    MEMORY
+                </small>
+
+                <h3 id="viewerTitle">
+                    Memory
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="viewer-next"
+            onclick="changePhoto(1)"
+        >
+            ›
+        </button>
+
+    </div>
+
+
+    <!-- MUSIC BUTTON -->
+
+    <button
+        class="music-button"
+        id="musicButton"
+    >
+        ♫
+    </button>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

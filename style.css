@@ -1,0 +1,1749 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #031426;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =================================
+   GLOBAL
+================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    opacity: .035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 998;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 40%,
+            rgba(0, 10, 30, .5)
+        );
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =================================
+   LOADING
+================================= */
+
+.loading {
+    position: fixed;
+
+    inset: 0;
+
+    background: #020b18;
+
+    z-index: 99999;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.loading.hide {
+    opacity: 0;
+
+    visibility: hidden;
+}
+
+.loading-flower {
+    font-size: 60px;
+
+    animation:
+        loadingFlower 1.5s infinite;
+}
+
+@keyframes loadingFlower {
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(5deg);
+    }
+}
+
+.loading-line {
+    width: 160px;
+
+    height: 2px;
+
+    margin-top: 25px;
+
+    background:
+        rgba(255,255,255,.1);
+}
+
+.loading-line span {
+    display: block;
+
+    width: 0;
+
+    height: 100%;
+
+    background: #65caff;
+
+    animation:
+        loading 2s forwards;
+}
+
+@keyframes loading {
+
+    to {
+        width: 100%;
+    }
+}
+
+.loading p {
+    margin-top: 15px;
+
+    color: #597893;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* =================================
+   PARTICLES
+================================= */
+
+.particles {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 20;
+}
+
+
+/* =================================
+   OPENING
+================================= */
+
+.opening {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 500;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #104d7c,
+            #031426 68%
+        );
+
+    transition:
+        transform 1.3s cubic-bezier(.77,0,.18,1),
+        opacity .8s ease;
+}
+
+.opening.hide {
+    transform: translateY(-100%);
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.opening-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(60, 180, 255, .15);
+
+    filter: blur(100px);
+}
+
+.opening-content {
+    position: relative;
+
+    z-index: 2;
+
+    animation:
+        openingAppear 1.5s ease;
+}
+
+@keyframes openingAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+.opening-flower {
+    font-size: 65px;
+
+    margin-bottom: 20px;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(90, 190, 255, .5)
+        );
+
+    animation:
+        flowerFloat 3s infinite;
+}
+
+@keyframes flowerFloat {
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(4deg);
+    }
+}
+
+.eyebrow {
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    color: #72caff;
+
+    font-weight: 600;
+}
+
+.opening h1 {
+    font-family: "Caveat", cursive;
+
+    font-size:
+        clamp(90px, 16vw, 155px);
+
+    line-height: .65;
+
+    font-weight: 500;
+
+    margin: 25px 0;
+}
+
+.opening h1 span {
+    display: block;
+
+    color: #6acbff;
+
+    text-shadow:
+        0 0 40px
+        rgba(70, 180, 255, .4);
+}
+
+.opening-text {
+    color: #82a5c4;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin-top: 40px;
+}
+
+.play-btn {
+    margin-top: 30px;
+
+    border:
+        1px solid
+        rgba(100, 205, 255, .4);
+
+    background:
+        rgba(50, 150, 230, .15);
+
+    color: white;
+
+    padding: 14px 25px;
+
+    border-radius: 50px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+
+    transition: .4s;
+
+    backdrop-filter: blur(10px);
+}
+
+.play-btn:hover {
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    background:
+        rgba(50, 150, 230, .3);
+
+    box-shadow:
+        0 15px 50px
+        rgba(40, 160, 255, .2);
+}
+
+.play-circle {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    background: #64c8ff;
+
+    color: #031426;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 10px;
+}
+
+.sound-hint {
+    color: #496983;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    margin-top: 20px;
+}
+
+
+/* =================================
+   FILM
+================================= */
+
+.film {
+    height: 100vh;
+
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #0a365a,
+            #020c1a 75%
+        );
+}
+
+.film-top {
+    position: absolute;
+
+    top: 30px;
+
+    left: 35px;
+    right: 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    z-index: 30;
+}
+
+.film-logo {
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #82b8d8;
+}
+
+.sound-status {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #64849d;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.sound-status span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #65caff;
+
+    box-shadow:
+        0 0 10px #65caff;
+
+    animation:
+        pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    50% {
+        opacity: .3;
+    }
+}
+
+
+/* =================================
+   FILM PROGRESS
+================================= */
+
+.film-progress {
+    position: absolute;
+
+    left: 35px;
+
+    top: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    z-index: 30;
+}
+
+.film-counter {
+    font-family: "Caveat", cursive;
+
+    color: #6bcaff;
+
+    font-size: 25px;
+}
+
+.film-counter span {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 8px;
+
+    color: #557590;
+}
+
+.film-line {
+    width: 110px;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.15);
+}
+
+.film-line span {
+    display: block;
+
+    width: 12.5%;
+
+    height: 100%;
+
+    background: #64caff;
+
+    transition:
+        width .7s ease;
+}
+
+
+/* =================================
+   FILM PHOTO
+================================= */
+
+.film-photo-area {
+    position: absolute;
+
+    width:
+        min(430px, 44vw);
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 5;
+}
+
+.film-photo-glow {
+    position: absolute;
+
+    inset: -50px;
+
+    background:
+        rgba(40, 165, 245, .2);
+
+    filter: blur(70px);
+
+    border-radius: 50%;
+}
+
+.film-photo-back {
+    position: absolute;
+
+    width: 90%;
+
+    height: 90%;
+
+    background: #0b4771;
+
+    left: 35px;
+
+    top: 30px;
+
+    filter: blur(20px);
+
+    opacity: .5;
+}
+
+.film-photo {
+    position: relative;
+
+    padding: 8px;
+
+    background: #edf9ff;
+
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.6);
+
+    transform:
+        rotate(-2deg);
+
+    transition: .6s;
+}
+
+.film-photo:hover {
+    transform:
+        rotate(0deg)
+        scale(1.02);
+}
+
+.film-photo img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    transition:
+        opacity .5s ease,
+        transform .8s ease;
+}
+
+
+/* =================================
+   FILM TULIPS
+================================= */
+
+.film-tulip {
+    position: absolute;
+
+    font-size: 130px;
+
+    opacity: .15;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(60, 180, 255, .5)
+        );
+
+    z-index: 2;
+}
+
+.tulip-left {
+    left: 4%;
+
+    bottom: -20px;
+
+    transform:
+        rotate(-20deg);
+}
+
+.tulip-right {
+    right: 5%;
+
+    top: 18%;
+
+    transform:
+        rotate(20deg);
+}
+
+
+/* =================================
+   FILM CAPTION
+================================= */
+
+.film-caption {
+    position: absolute;
+
+    left: 8%;
+
+    bottom: 12%;
+
+    width: 320px;
+
+    z-index: 20;
+}
+
+.film-caption p {
+    color: #68caff;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+}
+
+.film-caption h2 {
+    font-family: "Caveat", cursive;
+
+    font-size:
+        clamp(45px, 5vw, 70px);
+
+    line-height: .85;
+
+    font-weight: 500;
+
+    margin: 12px 0;
+}
+
+.film-caption span {
+    color: #7599b7;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    display: block;
+}
+
+
+/* =================================
+   NEXT
+================================= */
+
+.film-next {
+    position: absolute;
+
+    right: 7%;
+
+    bottom: 12%;
+
+    z-index: 30;
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    cursor: pointer;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+.film-next b {
+    width: 48px;
+    height: 48px;
+
+    border:
+        1px solid
+        rgba(100,200,255,.5);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #65caff;
+
+    font-size: 20px;
+
+    transition: .3s;
+}
+
+.film-next:hover b {
+    background: #65caff;
+
+    color: #031426;
+
+    transform:
+        translateX(5px);
+}
+
+.film-swipe {
+    position: absolute;
+
+    bottom: 4%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color: #3d607c;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =================================
+   TRANSITION
+================================= */
+
+.transition {
+    position: fixed;
+
+    inset: 0;
+
+    background: #020c1a;
+
+    z-index: 9990;
+
+    pointer-events: none;
+
+    transform:
+        translateY(100%);
+
+    transition:
+        transform .8s
+        cubic-bezier(.77,0,.18,1);
+}
+
+.transition.active {
+    transform:
+        translateY(0);
+}
+
+.transition-tulip {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    font-size: 75px;
+
+    opacity: 0;
+
+    transition:
+        opacity .3s ease .3s;
+}
+
+.transition.active
+.transition-tulip {
+    opacity: 1;
+}
+
+
+/* =================================
+   GARDEN
+================================= */
+
+.garden {
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(50, 160, 240, .15),
+            transparent 30%
+        ),
+        #031426;
+
+    overflow: hidden;
+}
+
+
+/* =================================
+   GARDEN INTRO
+================================= */
+
+.garden-intro {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+.garden-flower {
+    font-size: 70px;
+
+    margin-bottom: 25px;
+
+    animation:
+        flowerFloat 3s infinite;
+}
+
+.garden-intro h2 {
+    font-family: "Caveat", cursive;
+
+    font-size:
+        clamp(65px, 10vw, 110px);
+
+    line-height: .75;
+
+    margin: 25px 0;
+}
+
+.garden-intro h2 span {
+    display: block;
+
+    color: #69caff;
+}
+
+.garden-intro > p:last-of-type {
+    max-width: 550px;
+
+    color: #7598b5;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.scroll-arrow {
+    margin-top: 50px;
+
+    color: #65caff;
+
+    animation:
+        bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+
+    50% {
+        transform:
+            translateY(8px);
+    }
+}
+
+
+/* =================================
+   SCRAPBOOK
+================================= */
+
+.scrapbook {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding:
+        100px 25px
+        140px;
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 60px;
+}
+
+.section-title p {
+    color: #67c9ff;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+}
+
+.section-title h2 {
+    font-family: "Caveat", cursive;
+
+    font-size: 70px;
+
+    line-height: .8;
+
+    margin-top: 15px;
+}
+
+.photo-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 60px 35px;
+}
+
+.memory-card {
+    cursor: pointer;
+
+    transition:
+        transform .5s ease;
+}
+
+.memory-card:hover {
+    transform:
+        translateY(-12px)
+        rotate(0deg) !important;
+}
+
+.card1 {
+    transform: rotate(-2deg);
+}
+
+.card2 {
+    transform: rotate(2deg);
+}
+
+.card3 {
+    transform: rotate(1deg);
+}
+
+.card4 {
+    transform: rotate(-2deg);
+}
+
+.card5 {
+    transform: rotate(2deg);
+}
+
+.card6 {
+    transform: rotate(-1deg);
+}
+
+.card7 {
+    transform: rotate(-2deg);
+}
+
+.card8 {
+    transform: rotate(2deg);
+}
+
+.card-image {
+    position: relative;
+
+    padding: 10px;
+
+    background: #f0faff;
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.4);
+}
+
+.card-image img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+}
+
+.card-number {
+    position: absolute;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(3,25,50,.85);
+
+    color: white;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 22px;
+}
+
+.card-info {
+    padding:
+        15px 5px;
+}
+
+.card-info small {
+    color: #64c9ff;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.card-info h3 {
+    font-family: "Caveat", cursive;
+
+    font-size: 27px;
+
+    color: #d9f1ff;
+
+    font-weight: 500;
+
+    margin-top: 5px;
+}
+
+
+/* =================================
+   FUNNY
+================================= */
+
+.funny {
+    padding:
+        100px 20px
+        150px;
+}
+
+.funny-box {
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 70px 30px;
+
+    border:
+        1px solid
+        rgba(100,200,255,.15);
+
+    border-radius: 40px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,90,145,.4),
+            rgba(3,30,60,.6)
+        );
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.3);
+}
+
+.funny-flower {
+    font-size: 65px;
+
+    margin-bottom: 20px;
+
+    animation:
+        flowerFloat 3s infinite;
+}
+
+.funny-box h2 {
+    font-family: "Caveat", cursive;
+
+    font-size:
+        clamp(55px, 8vw, 80px);
+
+    line-height: .8;
+
+    margin: 20px 0 50px;
+}
+
+.funny-box h2 span {
+    color: #69caff;
+}
+
+.reasons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.reason {
+    text-align: left;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    border:
+        1px solid
+        rgba(100,200,255,.1);
+
+    transition: .3s;
+}
+
+.reason:hover {
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(60,170,240,.1);
+}
+
+.reason strong {
+    color: #65caff;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 30px;
+}
+
+.reason p {
+    color: #88abc7;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    margin-top: 8px;
+}
+
+.reason b {
+    color: white;
+}
+
+
+/* =================================
+   LETTER
+================================= */
+
+.letter-section {
+    padding:
+        100px 20px
+        150px;
+}
+
+.letter {
+    position: relative;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    padding:
+        65px 50px;
+
+    color: #06345a;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e4f6ff,
+            #b9e3fa
+        );
+
+    border-radius: 6px;
+
+    transform:
+        rotate(-1deg);
+
+    box-shadow:
+        0 35px 80px
+        rgba(0,0,0,.4);
+}
+
+.letter-tulip {
+    position: absolute;
+
+    right: 30px;
+
+    top: -40px;
+
+    font-size: 70px;
+
+    transform:
+        rotate(8deg);
+}
+
+.letter .eyebrow {
+    color: #2978a5;
+}
+
+.letter h2 {
+    font-family: "Caveat", cursive;
+
+    font-size: 75px;
+
+    line-height: .8;
+
+    margin: 20px 0;
+
+    color: #063b68;
+}
+
+.letter-line {
+    width: 80px;
+
+    height: 2px;
+
+    background: #2777a2;
+
+    margin:
+        25px 0;
+}
+
+.letter > p {
+    font-family: "Caveat", cursive;
+
+    font-size: 22px;
+
+    line-height: 1.45;
+
+    margin-bottom: 20px;
+}
+
+.letter > p span {
+    color: #0878bd;
+
+    font-weight: 700;
+}
+
+.letter-highlight {
+    font-size: 27px !important;
+
+    font-weight: 600;
+}
+
+.signature {
+    text-align: right;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 22px;
+
+    margin-top: 35px;
+}
+
+
+/* =================================
+   FINAL
+================================= */
+
+.final {
+    min-height: 90vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 80px 20px;
+}
+
+.final-flowers {
+    font-size: 35px;
+
+    letter-spacing: 10px;
+
+    margin-bottom: 30px;
+}
+
+.final h2 {
+    font-family: "Caveat", cursive;
+
+    font-size:
+        clamp(60px, 10vw, 105px);
+
+    line-height: .75;
+
+    margin: 20px 0;
+}
+
+.final h2 span {
+    display: block;
+
+    color: #69caff;
+}
+
+.final > p:not(.eyebrow):not(.made) {
+    color: #7799b7;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin-top: 25px;
+}
+
+.heart {
+    font-size: 55px;
+
+    margin-top: 30px;
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    50% {
+        transform:
+            scale(1.2);
+    }
+}
+
+.made {
+    margin-top: 80px;
+
+    color: #456681;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* =================================
+   PHOTO VIEWER
+================================= */
+
+.viewer {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+        rgba(0,10,25,.96);
+
+    backdrop-filter: blur(20px);
+}
+
+.viewer.active {
+    display: flex;
+}
+
+.viewer-content {
+    width: 90%;
+
+    max-width: 800px;
+
+    text-align: center;
+
+    animation:
+        viewerIn .4s ease;
+}
+
+@keyframes viewerIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+.viewer-content img {
+    max-height: 72vh;
+
+    width: auto;
+
+    max-width: 100%;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.7);
+}
+
+.viewer-caption {
+    margin-top: 20px;
+}
+
+.viewer-caption small {
+    color: #66c9ff;
+
+    letter-spacing: 3px;
+
+    font-size: 9px;
+}
+
+.viewer-caption h3 {
+    font-family: "Caveat", cursive;
+
+    font-size: 32px;
+
+    margin-top: 5px;
+}
+
+.viewer-close,
+.viewer-prev,
+.viewer-next {
+    position: absolute;
+
+    border: none;
+
+    color: white;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.viewer-close {
+    right: 25px;
+
+    top: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    font-size: 30px;
+}
+
+.viewer-prev,
+.viewer-next {
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 55px;
+    height: 55px;
+
+    font-size: 45px;
+}
+
+.viewer-prev {
+    left: 25px;
+}
+
+.viewer-next {
+    right: 25px;
+}
+
+.viewer-close:hover,
+.viewer-prev:hover,
+.viewer-next:hover {
+    background:
+        rgba(60,170,240,.4);
+}
+
+
+/* =================================
+   MUSIC BUTTON
+================================= */
+
+.music-button {
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 9000;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(100,200,255,.3);
+
+    background:
+        rgba(3,30,55,.7);
+
+    color: #67caff;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition: .3s;
+}
+
+.music-button:hover {
+    transform:
+        scale(1.1);
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 700px) {
+
+    .film-top {
+        top: 20px;
+
+        left: 20px;
+        right: 20px;
+    }
+
+    .film-progress {
+        left: 20px;
+
+        top: 65px;
+    }
+
+    .film-photo-area {
+        width: 70vw;
+
+        top: 35%;
+    }
+
+    .film-caption {
+        left: 25px;
+
+        bottom: 15%;
+
+        width: 70%;
+    }
+
+    .film-caption h2 {
+        font-size: 42px;
+    }
+
+    .film-caption span {
+        font-size: 10px;
+    }
+
+    .film-next {
+        right: 20px;
+
+        bottom: 7%;
+    }
+
+    .film-next span {
+        display: none;
+    }
+
+    .film-tulip {
+        font-size: 80px;
+    }
+
+    .film-swipe {
+        display: none;
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .memory-card {
+        max-width: 430px;
+
+        width: 100%;
+
+        margin: auto;
+    }
+
+    .reasons {
+        grid-template-columns: 1fr;
+    }
+
+    .letter {
+        padding:
+            55px 28px;
+    }
+
+    .letter h2 {
+        font-size: 65px;
+    }
+
+    .letter > p {
+        font-size: 20px;
+    }
+
+    .viewer-prev,
+    .viewer-next {
+        width: 42px;
+        height: 42px;
+
+        font-size: 30px;
+    }
+
+    .viewer-prev {
+        left: 8px;
+    }
+
+    .viewer-next {
+        right: 8px;
+    }
+
+    .opening h1 {
+        font-size: 90px;
+    }
+}
+
+
+/* =================================
+   SHORT PHONE
+================================= */
+
+@media (max-height: 700px) and (max-width: 700px) {
+
+    .film-photo-area {
+        top: 32%;
+
+        width: 45vh;
+    }
+
+    .film-caption {
+        bottom: 8%;
+    }
+
+    .film-caption h2 {
+        font-size: 35px;
+    }
+
+    .film-caption span {
+        display: none;
+    }
+}
