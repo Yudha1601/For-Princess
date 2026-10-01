@@ -1,474 +1,522 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100vh;
-  font-family: "Fredoka", sans-serif;
-  overflow-x: hidden;
-
-  background:
-    radial-gradient(circle at top left, #dff3ff 0%, transparent 35%),
-    radial-gradient(circle at bottom right, #b9dcff 0%, transparent 35%),
-    linear-gradient(135deg, #eff9ff, #cbe8ff, #f8fcff);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.container {
-  width: 100%;
-  max-width: 500px;
-  position: relative;
-  z-index: 2;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(15px);
-
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  border-radius: 35px;
-
-  padding: 40px 28px;
-  text-align: center;
-
-  box-shadow:
-    0 20px 50px rgba(45, 110, 170, 0.2),
-    inset 0 0 30px rgba(255, 255, 255, 0.5);
-
-  animation: appear 0.8s ease;
-}
-
-.hidden {
-  display: none;
-}
-
-/* =========================
-   HALAMAN AWAL
-========================= */
-
-.small-heart {
-  font-size: 24px;
-  margin-bottom: 20px;
-  animation: pulse 1.5s infinite;
-}
-
-h1 {
-  font-family: "Pacifico", cursive;
-  color: #2474b5;
-  font-size: 38px;
-  margin-bottom: 18px;
-}
-
-.card p {
-  color: #496a84;
-  font-size: 17px;
-  line-height: 1.7;
-}
-
-.gift-button,
-.forgive-button,
-.restart-button {
-  border: none;
-  cursor: pointer;
-  font-family: "Fredoka", sans-serif;
-  font-weight: 600;
-  font-size: 17px;
-
-  transition: 0.25s ease;
-}
-
-.gift-button {
-  margin-top: 30px;
-  padding: 16px 28px;
-
-  border-radius: 20px;
-
-  color: white;
-
-  background: linear-gradient(135deg, #2085d4, #67b7ed);
-
-  box-shadow: 0 10px 25px rgba(32, 133, 212, 0.3);
-
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.gift {
-  font-size: 45px;
-}
-
-.gift-button:hover {
-  transform: translateY(-5px) scale(1.04);
-}
-
-.gift-button:active {
-  transform: scale(0.95);
-}
-
-.hint {
-  margin-top: 18px;
-  font-size: 13px !important;
-  opacity: 0.7;
+    background: #10070b;
+    color: white;
+    font-family: Arial, sans-serif;
 }
 
 
 /* =========================
-   BUNGA
+   OPENING
 ========================= */
 
-.for-you {
-  font-size: 15px !important;
-  color: #63a7d8 !important;
-  margin-bottom: 5px;
+#opening {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #54172e,
+            #10070b 70%
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    z-index: 9999;
 }
 
-.title {
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-.bouquet {
-  height: 330px;
-  position: relative;
-  margin: 10px auto 0;
-  width: 300px;
-}
-
-.flower {
-  position: absolute;
-  bottom: 15px;
-  width: 90px;
-  height: 300px;
-  transform-origin: bottom center;
-  animation: sway 3s ease-in-out infinite;
-}
-
-.flower1 {
-  left: 18px;
-  transform: rotate(-18deg);
-}
-
-.flower2 {
-  left: 70px;
-  transform: rotate(-8deg);
-  animation-delay: 0.4s;
-}
-
-.flower3 {
-  left: 110px;
-  z-index: 2;
-  animation-delay: 0.8s;
-}
-
-.flower4 {
-  right: 55px;
-  transform: rotate(8deg);
-  animation-delay: 0.2s;
-}
-
-.flower5 {
-  right: 5px;
-  transform: rotate(18deg);
-  animation-delay: 0.6s;
-}
-
-
-/* BATANG */
-
-.stem {
-  width: 9px;
-  height: 210px;
-
-  background: linear-gradient(
-    to right,
-    #3c9a70,
-    #6ac68f,
-    #35845f
-  );
-
-  border-radius: 20px;
-
-  position: absolute;
-  bottom: 0;
-  left: 40px;
-}
-
-
-/* DAUN */
-
-.leaf {
-  position: absolute;
-
-  width: 50px;
-  height: 24px;
-
-  background: linear-gradient(
-    135deg,
-    #4cad79,
-    #83d49e
-  );
-
-  border-radius: 100% 0 100% 0;
-}
-
-.leaf-left {
-  left: 0;
-  bottom: 95px;
-  transform: rotate(-35deg);
-}
-
-.leaf-right {
-  right: -3px;
-  bottom: 65px;
-  transform: rotate(35deg) scaleX(-1);
-}
-
-
-/* KELOPAK TULIP */
-
-.petal {
-  position: absolute;
-  top: 0;
-
-  width: 48px;
-  height: 80px;
-
-  background: linear-gradient(
-    135deg,
-    #b9edff,
-    #4da9e8 55%,
-    #176bb0
-  );
-
-  box-shadow:
-    inset 5px 5px 10px rgba(255, 255, 255, 0.35),
-    0 8px 15px rgba(34, 121, 184, 0.15);
-}
-
-.petal-left {
-  left: 4px;
-  top: 12px;
-
-  border-radius: 80% 20% 55% 45%;
-
-  transform: rotate(-20deg);
-}
-
-.petal-middle {
-  left: 22px;
-
-  border-radius: 50% 50% 40% 40%;
-}
-
-.petal-right {
-  right: 3px;
-  top: 12px;
-
-  border-radius: 20% 80% 45% 55%;
-
-  transform: rotate(20deg);
-}
-
-
-/* =========================
-   PESAN
-========================= */
-
-.message {
-  margin-top: 15px;
-  padding: 20px;
-
-  background: rgba(223, 243, 255, 0.75);
-
-  border-radius: 22px;
-
-  border: 1px solid rgba(93, 173, 226, 0.2);
-}
-
-.message p {
-  margin-bottom: 14px;
-  font-size: 16px;
-}
-
-.message p:last-child {
-  margin-bottom: 0;
-}
-
-.special {
-  color: #2374ad !important;
-  font-weight: 600;
-}
-
-.forgive-button {
-  margin-top: 25px;
-
-  padding: 15px 24px;
-
-  border-radius: 50px;
-
-  color: white;
-
-  background: linear-gradient(135deg, #1976b9, #75c8f1);
-
-  box-shadow: 0 10px 20px rgba(30, 122, 190, 0.25);
-}
-
-.forgive-button:hover {
-  transform: translateY(-4px);
-}
-
-
-/* =========================
-   HALAMAN AKHIR
-========================= */
-
-.final-page {
-  animation: appear 0.8s ease;
-}
-
-.big-love {
-  font-size: 65px;
-  margin-bottom: 15px;
-  animation: pulse 1.5s infinite;
-}
-
-.final-page h2 {
-  font-family: "Pacifico", cursive;
-  color: #2474b5;
-  font-size: 29px;
-  margin: 20px 0;
-}
-
-.love-line {
-  font-size: 22px;
-  letter-spacing: 8px;
-  margin: 20px 0;
-}
-
-.from {
-  font-size: 14px !important;
-  font-style: italic;
-  opacity: 0.8;
-}
-
-.restart-button {
-  margin-top: 25px;
-
-  padding: 13px 23px;
-
-  border-radius: 50px;
-
-  color: #2474b5;
-  background: white;
-
-  border: 2px solid #9ed8f5;
-}
-
-.restart-button:hover {
-  transform: scale(1.05);
-}
-
-
-/* =========================
-   HATI TERBANG
-========================= */
-
-#hearts {
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-  overflow: hidden;
-
-  z-index: 1;
+.opening-content {
+    width: 90%;
+    max-width: 500px;
 }
 
 .heart {
-  position: absolute;
-  bottom: -50px;
+    color: #e184a0;
+    font-size: 65px;
 
-  font-size: 25px;
+    margin-bottom: 25px;
 
-  animation: floatUp linear forwards;
+    animation: heartbeat 1.5s infinite;
+}
 
-  filter: drop-shadow(0 5px 5px rgba(0, 100, 200, 0.15));
+.date {
+    color: #d28ba0;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+}
+
+.opening-content h1 {
+    font-family: Georgia, serif;
+
+    font-size: 55px;
+
+    font-weight: normal;
+
+    margin: 15px 0;
+}
+
+.opening-text {
+    color: #ad969e;
+
+    margin-bottom: 35px;
+}
+
+#openBtn {
+    padding: 15px 30px;
+
+    border: 1px solid #d77f99;
+
+    border-radius: 50px;
+
+    background: transparent;
+
+    color: white;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+}
+
+#openBtn:hover {
+    background: #d77f99;
+
+    color: #16080d;
 }
 
 
 /* =========================
-   ANIMASI
+   HERO
 ========================= */
 
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-  }
+.hero {
+    min-height: 100vh;
 
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #591b32,
+            #10070b 70%
+        );
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.12);
-  }
+.hero-content {
+    padding: 30px;
 }
 
-@keyframes sway {
-  0%, 100% {
-    transform: rotate(-3deg);
-  }
+.hero h1 {
+    font-family: Georgia, serif;
 
-  50% {
-    transform: rotate(3deg);
-  }
+    font-size: clamp(55px, 12vw, 100px);
+
+    font-weight: normal;
+
+    line-height: 0.9;
+
+    margin-top: 25px;
 }
 
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0;
-  }
+.hero h1 span {
+    color: #df819d;
 
-  10% {
-    opacity: 1;
-  }
+    font-style: italic;
+}
 
-  100% {
-    transform: translateY(-110vh) rotate(360deg);
-    opacity: 0;
-  }
+.subtitle {
+    color: #c7b1b9;
+
+    line-height: 1.8;
+
+    margin-top: 30px;
+}
+
+.scroll {
+    color: #957985;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    line-height: 2;
+
+    margin-top: 70px;
 }
 
 
-/* HP KECIL */
+/* =========================
+   MESSAGE
+========================= */
 
-@media (max-width: 400px) {
-  .card {
-    padding: 30px 18px;
-  }
+.message {
+    max-width: 750px;
 
-  h1 {
-    font-size: 32px;
-  }
+    margin: auto;
 
-  .bouquet {
-    transform: scale(0.9);
-    margin-bottom: -25px;
-  }
+    padding: 130px 25px;
+
+    text-align: center;
+}
+
+.label {
+    color: #d28ba0;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(45px, 8vw, 70px);
+
+    font-weight: normal;
+
+    line-height: 1;
+}
+
+h2 span {
+    color: #df819d;
+
+    font-style: italic;
+}
+
+.message > p:not(.label) {
+    max-width: 600px;
+
+    margin: 35px auto 0;
+
+    color: #c4b0b8;
+
+    line-height: 2;
+}
+
+.heart-line {
+    color: #df819d;
+
+    margin-top: 50px;
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 100px 20px;
+}
+
+.gallery-intro {
+    color: #9c858e;
+
+    line-height: 1.7;
+
+    margin: 25px 0 70px;
+}
+
+
+/* FOTO */
+
+.photo-item {
+    margin-bottom: 100px;
+}
+
+.photo {
+    width: 100%;
+
+    max-width: 430px;
+
+    margin: auto;
+
+    aspect-ratio: 9 / 16;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #241017;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* CAPTION */
+
+.caption {
+    max-width: 430px;
+
+    margin: 25px auto 0;
+
+    text-align: center;
+}
+
+.caption span {
+    color: #d17d96;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+.caption h3 {
+    font-family: Georgia, serif;
+
+    font-size: 28px;
+
+    font-weight: normal;
+
+    margin: 10px 0;
+}
+
+.caption p {
+    color: #a9939b;
+
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   QUESTION
+========================= */
+
+.question {
+    min-height: 80vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+}
+
+.big-heart {
+    color: #df819d;
+
+    font-size: 55px;
+
+    margin-bottom: 25px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+#loveBtn {
+    margin-top: 40px;
+
+    padding: 16px 35px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: #df819d;
+
+    color: #16080d;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#loveBtn:hover {
+    transform: scale(1.05);
+}
+
+#answer {
+    color: #df9db1;
+
+    font-family: Georgia, serif;
+
+    font-size: 19px;
+
+    margin-top: 25px;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    background:
+        radial-gradient(
+            circle,
+            #55192f,
+            #10070b 70%
+        );
+}
+
+.final h2 {
+    margin-bottom: 30px;
+}
+
+.final-date {
+    color: #9d7e89;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+.line {
+    width: 70px;
+
+    height: 1px;
+
+    background: #68404e;
+
+    margin: 30px 0;
+}
+
+.love {
+    color: #9d7e89;
+
+    font-family: Georgia, serif;
+
+    font-style: italic;
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+#musicBtn {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #df819d;
+
+    color: #16080d;
+
+    font-size: 20px;
+
+    z-index: 500;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .opening-content h1 {
+        font-size: 45px;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .message {
+        padding: 100px 20px;
+    }
+
+    .gallery {
+        padding: 80px 20px;
+    }
+
+    .photo-item {
+        margin-bottom: 85px;
+    }
+
 }
