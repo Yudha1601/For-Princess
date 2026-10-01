@@ -1,95 +1,57 @@
-const startPage = document.getElementById("startPage");
-const flowerPage = document.getElementById("flowerPage");
-const finalPage = document.getElementById("finalPage");
+var opening = document.getElementById("opening");
 
-const giftButton = document.getElementById("giftButton");
-const forgiveButton = document.getElementById("forgiveButton");
-const restartButton = document.getElementById("restartButton");
+var openBtn = document.getElementById("openBtn");
 
-const heartsContainer = document.getElementById("hearts");
+var music = document.getElementById("music");
 
+var musicBtn = document.getElementById("musicBtn");
 
-// BUKA HADIAH
-giftButton.addEventListener("click", () => {
-  
-  startPage.classList.add("hidden");
-  flowerPage.classList.remove("hidden");
-  
-  createHearts(35);
-});
+var loveBtn = document.getElementById("loveBtn");
+
+var answer = document.getElementById("answer");
 
 
-// TOMBOL SUDAH GA NGAMBEK
-forgiveButton.addEventListener("click", () => {
-  
-  flowerPage.classList.add("hidden");
-  finalPage.classList.remove("hidden");
-  
-  createHearts(60);
-});
+/* OPEN WEBSITE */
 
-
-// LIHAT BUNGA LAGI
-restartButton.addEventListener("click", () => {
-  
-  finalPage.classList.add("hidden");
-  flowerPage.classList.remove("hidden");
-  
-  createHearts(25);
-});
-
-
-// MEMBUAT HATI BETERBANGAN
-function createHeart() {
-  
-  const heart = document.createElement("div");
-  
-  heart.classList.add("heart");
-  
-  const heartTypes = ["💙", "🤍", "💙", "🤍", "💙"];
-  
-  heart.innerHTML =
-    heartTypes[Math.floor(Math.random() * heartTypes.length)];
-  
-  
-  // POSISI ACAK
-  heart.style.left = Math.random() * 100 + "vw";
-  
-  
-  // UKURAN ACAK
-  heart.style.fontSize =
-    Math.random() * 25 + 18 + "px";
-  
-  
-  // KECEPATAN ACAK
-  heart.style.animationDuration =
-    Math.random() * 4 + 5 + "s";
-  
-  
-  heartsContainer.appendChild(heart);
-  
-  
-  // HAPUS SETELAH ANIMASI SELESAI
-  setTimeout(() => {
-    heart.remove();
-  }, 9000);
-}
-
-
-// MEMBUAT BANYAK HATI
-function createHearts(amount) {
-  
-  for (let i = 0; i < amount; i++) {
+openBtn.onclick = function() {
     
-    setTimeout(() => {
-      createHeart();
-    }, i * 100);
+    opening.style.display = "none";
     
-  }
-}
+    music.play().catch(function() {
+        
+        console.log("Music tidak dapat diputar otomatis.");
+        
+    });
+    
+};
 
 
-// HATI TERUS MUNCUL DI BACKGROUND
-setInterval(() => {
-  createHeart();
-}, 1800);
+/* MUSIC */
+
+musicBtn.onclick = function() {
+    
+    if (music.paused) {
+        
+        music.play();
+        
+        musicBtn.innerHTML = "♫";
+        
+    } else {
+        
+        music.pause();
+        
+        musicBtn.innerHTML = "▶";
+        
+    }
+    
+};
+
+
+/* LOVE BUTTON */
+
+loveBtn.onclick = function() {
+    
+    answer.innerHTML =
+        "I knew it. I love you too. ❤️";
+    
+};
